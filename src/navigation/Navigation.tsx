@@ -13,10 +13,10 @@ const Stack = createStackNavigator();
 
 const commonTabScreenOptions = {
     tabBarStyle: {
-        backgroundColor: '#f0f0f0',
+        backgroundColor: '#ffffff',
         elevation: 0,
     },
-    tabBarActiveTintColor: '#007AFF',
+    tabBarActiveTintColor: '#06D6A0',
     tabBarInactiveTintColor: '#A0A0A0',
     tabBarLabelStyle: {
         fontSize: 14,
@@ -27,7 +27,7 @@ const commonTabScreenOptions = {
 const HomeTabOptions = {
     tabBarLabel: 'Home',
     tabBarStyle: {
-        backgroundColor: '#f0f0f0',
+        backgroundColor: '#ffffff',
         elevation: 0,
     },
     headerShown: false,
