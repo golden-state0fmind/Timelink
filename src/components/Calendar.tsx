@@ -18,6 +18,11 @@ interface AgendaSchedule {
 }
 
 const timeToString = (time: string | number | Date) => {
+    // TODO::
+    // color coordinate the services for the customer within the time slot
+    // will need text and emial confirmation for clients 
+    // 
+    
     const date = new Date(time);
     return date.toISOString().split('T')[0];
 };

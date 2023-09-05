@@ -26,16 +26,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 30,
-        backgroundColor:'#ffffff'
+        backgroundColor: '#E7D5C7',
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 24,
+        color:'#073B4C'
     },
     desc: {
-        fontSize: 16,
+        fontSize: 20,
         marginBottom: 24,
+        color:'#073B4C'
     },
 });
 

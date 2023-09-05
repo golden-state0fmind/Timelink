@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 32,
-        backgroundColor: '#f0f0f0', // Light gray background
+        backgroundColor: '#E7D5C7', // Light gray background
     },
     title: {
         fontSize: 24,
