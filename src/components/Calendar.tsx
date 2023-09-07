@@ -20,8 +20,7 @@ interface AgendaSchedule {
 const timeToString = (time: string | number | Date) => {
     // TODO::
     // color coordinate the services for the customer within the time slot
-    // will need text and emial confirmation for clients 
-    // 
+    // will need text and emial confirmation for clients
     
     const date = new Date(time);
     return date.toISOString().split('T')[0];
@@ -84,15 +83,17 @@ const Schedule: React.FC = () => {
                 minDate={new Date().toISOString().substr(0, 10)}
                 maxDate={new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().substr(0, 10)}
                 theme={{
-                    agendaDayTextColor: '#073B4C',
-                    agendaDayNumColor: '#073B4C',
+                    agendaDayTextColor: '#521908', 
+                    agendaDayNumColor: '#521908',
                     agendaTodayColor: '#073B4C',
-                    agendaKnobColor: '#06D6A0',
-                    selectedDayBackgroundColor: '#06D6A0',
-                    selectedDayTextColor: '#ffffff',
-                    dotColor: '#06D6A0',
-                    todayTextColor: '#073B4C',
-                    arrowColor: '#06D6A0',
+                    agendaKnobColor: '#521908',
+                    selectedDayBackgroundColor: '#521908',
+                    selectedDayTextColor: '#E7D5C7',
+                    dotColor: '#521908',
+                    todayTextColor: '#521908',
+                    arrowColor: '#521908',
+                    
+                    
                 }}
             />
             {selectedAppointment && (
@@ -109,16 +110,16 @@ const Schedule: React.FC = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ffffff',
         marginTop: 40,
+        color: '#521908'
     },
     cardContainer: {
         marginRight: 10,
         marginTop: 17,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#E7D5C7',
     },
     card: {
-        backgroundColor: '#06D6A0',
+        backgroundColor: '#E7D5C7',
         borderRadius: 10,
         padding: 16,
         shadowColor: '#a8a8a8',
@@ -136,14 +137,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     cardText: {
-        fontSize: 16,
+        fontSize: 18,
+        color: '#521908'
     },
     cardSelectText: {
-        color: '#073B4C',
-        fontSize: 16,
+        color: '#521908',
+        fontSize: 18,
     },
     selectedAppointmentContainer: {
-        backgroundColor: '#f0f0f0',
+        backgroundColor: '#F7EBD3',
         padding: 16,
         
         borderRadius: 10,
@@ -157,8 +159,8 @@ const styles = StyleSheet.create({
         elevation: 4,
     },
     selectedAppointmentText: {
-        color: '#06D6A0',
-        fontSize: 16,
+        color: '#521908',
+        fontSize: 20,
     },
 });
 
