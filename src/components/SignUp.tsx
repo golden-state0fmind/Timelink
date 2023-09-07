@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import { signIn, signUp } from '../services/FirebaseUser';
+import { View, Text, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import NeumorphicButton from './NeumorphicButton';
+import { signIn, signUp } from '../services/FirebaseUser';
+import { globalStyles } from '../assets/styles/globalStyles';
 
 const SignUpForm: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -42,36 +43,36 @@ const SignUpForm: React.FC = () => {
 
     const getLabelWithAsterisk = (label: string) => {
         return (
-            <View style={styles.labelContainer}>
-                <Text style={styles.labelText}>{label}</Text>
-                <Text style={styles.asterisk}>*</Text>
+            <View style={globalStyles.labelContainer}>
+                <Text style={globalStyles.labelText}>{label}</Text>
+                <Text style={globalStyles.asterisk}>*</Text>
             </View>
         );
     };
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>{isSignIn ? 'Sign In' : 'Create Account'}</Text>
-            <View style={styles.inputContainer}>
+        <View style={globalStyles.container}>
+            <Text style={globalStyles.title}>{isSignIn ? 'Sign In' : 'Create Account'}</Text>
+            <View style={globalStyles.inputContainer}>
                 {getLabelWithAsterisk('Email')}
                 <TextInput
-                    style={styles.input}
+                    style={globalStyles.input}
                     placeholder="Email"
                     value={email}
                     onChangeText={setEmail}
                 />
             </View>
-            <View style={styles.inputContainer}>
+            <View style={globalStyles.inputContainer}>
                 {getLabelWithAsterisk('Password')}
                 <TextInput
-                    style={styles.input}
+                    style={globalStyles.input}
                     placeholder="Password"
                     secureTextEntry
                     value={password}
                     onChangeText={setPassword}
                 />
             </View>
-            {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
+            {errorMessage && <Text style={globalStyles.errorMessage}>{errorMessage}</Text>}
             <NeumorphicButton title={'Submit'} onPress={handleAction} />
             <NeumorphicButton
                 title={isSignIn ? 'Create Account' : 'Sign In'}
@@ -84,52 +85,5 @@ const SignUpForm: React.FC = () => {
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 32,
-        backgroundColor: '#E7D5C7', // Light gray background
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 24,
-    },
-    inputContainer: {
-        marginBottom: 16,
-    },
-    input: {
-        minWidth: 280, // Set minimum width
-        height: 48,
-        borderRadius: 10,
-        backgroundColor: '#ffffff', // White input background
-        paddingHorizontal: 16,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
-        elevation: 3,
-    },
-    errorMessage: {
-        color: 'red',
-        marginTop: 12,
-        fontSize: 14,
-    },
-    labelContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 4,
-    },
-    labelText: {
-        marginRight: 4,
-    },
-    asterisk: {
-        color: 'red',
-    },
-});
+
 export default SignUpForm;
