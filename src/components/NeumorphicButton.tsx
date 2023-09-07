@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
         marginVertical: 10
     },
     buttonText: {
-        fontSize: 16,
+        fontSize: 20,
         fontWeight: 'bold',
-        color: '#333333',
+        color: '#521908',
         textAlign: 'center',
     },
 });
