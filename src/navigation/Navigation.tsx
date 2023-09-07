@@ -13,23 +13,19 @@ const Stack = createStackNavigator();
 
 const commonTabScreenOptions = {
     tabBarStyle: {
-        backgroundColor: '#E7D5C7',
+        backgroundColor: '#F7EBD3',
         elevation: 0,
     },
-    tabBarActiveTintColor: '#E3826F',
-    tabBarInactiveTintColor: 'black',
+    tabBarActiveTintColor: '#521908',
+    tabBarInactiveTintColor: '#767676',
     tabBarLabelStyle: {
-        fontSize: 14,
+        fontSize: 20,
     },
     tabBarShowLabel: true,
 };
 
 const HomeTabOptions = {
     tabBarLabel: 'Home',
-    tabBarStyle: {
-        backgroundColor: '#E7D5C7',
-        elevation: 0,
-    },
     headerShown: false,
     tabBarIcon: () => null, // Hide the tab icon
 };
