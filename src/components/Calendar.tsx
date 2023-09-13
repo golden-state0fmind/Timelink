@@ -32,20 +32,36 @@ const Schedule: React.FC = () => {
     const [selectedAppointment, setSelectedAppointment] = useState<AgendaItem | null>(null);
 
     const loadItems = (day: { timestamp: number }) => {
+        
         setTimeout(() => {
+            const numItems = 5; // Change this to the number of time slots you want
+            const startTime = 8 * 60; // Start time in minutes (e.g., 8:00 AM)
             const newItems: AgendaSchedule = {};
+
             for (let i = -15; i < 85; i++) {
                 const time = day.timestamp + i * 24 * 60 * 60 * 1000;
+
                 const strTime = timeToString(time);
                 if (!newItems[strTime]) {
                     newItems[strTime] = [];
-                    const numItems = 5;
+
                     for (let j = 0; j < numItems; j++) {
+                        // Calculate the time for the current slot
+                        const minutes = startTime + j * 90; // 90 minutes = 1.5 hours
+                        const hours = Math.floor(minutes / 60);
+                        const mins = minutes % 60;
+                        // Determine whether it's AM or PM
+                        const period = hours >= 12 ? 'PM' : 'AM';
+                        // Adjust hours for PM
+                        const formattedHours = hours > 12 ? hours - 12 : hours;
+                        // Format the time as HH:MM AM/PM
+                        const timeAvailable = `${formattedHours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')} ${period}`;
+
                         newItems[strTime].push({
                             //@ts-ignore
-                            name: `Available \nTime Slot ${j + 1} \n${strTime}`,
+                            name: `${timeAvailable}`,
                             height: Math.max(50, Math.floor(Math.random() * 150)),
-                            id: j + ' ' + strTime,
+                            id: j + ' ' + timeAvailable,
                         });
                     }
                 }
@@ -99,7 +115,7 @@ const Schedule: React.FC = () => {
             {selectedAppointment && (
                 <View style={styles.selectedAppointmentContainer}>
                     <Text style={styles.selectedAppointmentText}>
-                        Selected Appointment: {selectedAppointment.name}
+                        Beauty Moment set for: {selectedAppointment.name}
                     </Text>
                 </View>
             )}
@@ -147,7 +163,6 @@ const styles = StyleSheet.create({
     selectedAppointmentContainer: {
         backgroundColor: '#F7EBD3',
         padding: 16,
-        
         borderRadius: 10,
         shadowColor: '#a8a8a8',
         shadowOffset: {
@@ -161,6 +176,7 @@ const styles = StyleSheet.create({
     selectedAppointmentText: {
         color: '#521908',
         fontSize: 20,
+        textAlign:'center'
     },
 });
 
