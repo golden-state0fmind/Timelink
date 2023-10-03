@@ -114,11 +114,13 @@ const Schedule: React.FC = () => {
             />
             {selectedAppointment && (
                 <View style={styles.selectedAppointmentContainer}>
+                    <Text
+                        style={styles.cancelAppointmentText}
+                        onPress={() => { setSelectedAppointment(null) }} >
+                        X
+                    </Text>
                     <Text style={styles.selectedAppointmentText}>
                         Beauty Moment set for: {selectedAppointment.name}
-                    </Text>
-                    <Text onPress={() => { setSelectedAppointment(null)}} >
-                        X
                     </Text>
                 </View>
             )}
@@ -176,12 +178,18 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 4,
         display: 'flex',
-        justifyContent:'center'
+        justifyContent: 'center',
+        
     },
     selectedAppointmentText: {
         color: '#521908',
         fontSize: 20,
-        textAlign:'center'
+        textAlign: 'center',
+    },
+    cancelAppointmentText: {
+        color: '#521908',
+        fontSize: 20,
+        padding: 2, 
     },
 });
 
