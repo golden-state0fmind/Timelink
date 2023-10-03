@@ -117,6 +117,9 @@ const Schedule: React.FC = () => {
                     <Text style={styles.selectedAppointmentText}>
                         Beauty Moment set for: {selectedAppointment.name}
                     </Text>
+                    <Text onPress={() => { setSelectedAppointment(null)}} >
+                        X
+                    </Text>
                 </View>
             )}
         </View>
@@ -172,6 +175,8 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.6,
         shadowRadius: 4,
         elevation: 4,
+        display: 'flex',
+        justifyContent:'center'
     },
     selectedAppointmentText: {
         color: '#521908',
