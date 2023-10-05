@@ -193,4 +193,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Schedule;
+export default React.memo(Schedule);
